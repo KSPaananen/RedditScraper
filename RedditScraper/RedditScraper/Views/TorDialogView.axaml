@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:RedditScraper.ViewModels"
+             x:Class="RedditScraper.Views.TorDialogView"
+			 >
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:TorDialogViewModel />
+	</Design.DataContext>
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="60" />
+		</Grid.RowDefinitions>
+		
+		<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+			<Label Classes="Title" Content="{Binding Title}" />
+		</StackPanel>
+
+		<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+			<Label Classes="Description">
+				<TextBlock Classes="Description" TextWrapping="Wrap">
+					<Run Text="{Binding Body1}" />
+					<InlineUIContainer>
+						<Button Classes="HyperLink" Command="{Binding OpenLink}">
+							<TextBlock Classes="HyperLink" Text="{Binding Link}" />
+						</Button>
+					</InlineUIContainer>
+					<Run Text="{Binding Body2}" />
+				</TextBlock>
+			</Label>
+		</StackPanel>
+		<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Left" IsVisible="{Binding FeedBackVisibility}">
+			<Label Classes="InstallState" Content="{Binding InstallState}"  />
+			<ProgressBar Minimum="0" Maximum="100" Value="{Binding ProgressValue}" />
+		</StackPanel>
+
+		<StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center">
+			<Button Classes="ActionButton" Command="{Binding Download}" ClickMode="Press" Content="Download &amp; install" />
+		</StackPanel>
+
+		<StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+			<Button Classes="ActionButton" Command="{Binding Cancel, Mode=OneWay}" CommandParameter="{Binding ElementName=DialogWindow}" ClickMode="Release" Content="Cancel" />
+		</StackPanel>
+		
+	</Grid>
+	
+</UserControl>

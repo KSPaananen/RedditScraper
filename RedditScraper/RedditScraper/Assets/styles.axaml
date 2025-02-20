@@ -1,0 +1,150 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+	
+	<!--Site link box-->
+	<Style Selector="TextBox.Link">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Stretch" />
+
+		<Setter Property="Margin" Value="0,20,0,0" />
+
+		<Setter Property="FontSize" Value="20"/>
+	</Style>
+
+	<!--Textbox which provides user feedback-->
+	<Style Selector="TextBox.Results">
+		<Setter Property="VerticalAlignment" Value="Stretch" />
+		<Setter Property="HorizontalAlignment" Value="Stretch" />
+
+		<Setter Property="Margin" Value="0,10,20,17" />
+
+		<Setter Property="IsReadOnly" Value="True" />
+
+		<Setter Property="FontSize" Value="15"/>
+	</Style>
+
+	<!--Input fields in settings-->
+	<Style Selector="TextBox.SettingsInput">
+		<Setter Property="VerticalAlignment" Value="Top" />
+		<Setter Property="HorizontalAlignment" Value="Stretch" />
+
+		<Setter Property="Margin" Value="15,5,0,0" />
+
+		<Setter Property="FontSize" Value="15"/>
+
+		<!--<Setter Property="MaxWidth" Value="200" />-->
+	</Style>
+
+	<Style Selector="TextBox.Separator">
+		<Setter Property="VerticalAlignment" Value="Top" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+
+		
+		<Setter Property="Margin" Value="10,0,0,0" />
+
+		<Setter Property="FontSize" Value="15"/>
+
+		<!--<Setter Property="MaxWidth" Value="200" />-->
+	</Style>
+
+	<!--Primary button right-->
+	<Style Selector="Button.PrimaryRight">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Right" />
+
+		<Setter Property="Padding" Value="20,10,20,10" />
+		<Setter Property="Margin" Value="10,0,0,0" />
+
+		<Setter Property="FontSize" Value="15"/>
+	</Style>
+	
+	<!--Primary buttons left-->
+	<Style Selector="Button.PrimaryLeft">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+
+		<Setter Property="Padding" Value="20,10,20,10" />
+		<Setter Property="Margin" Value="10,0,0,0" />
+
+		<Setter Property="Background" Value="Gray" />
+
+		<Setter Property="FontSize" Value="15"/>
+	</Style>
+
+	<!-- Primary Label for settings menu-->
+	<Style Selector="Label.SettingsLabelH1">
+		<Setter Property="Padding" Value="5,10,0,5" />
+		<Setter Property="Margin" Value="10,0,0,0" />
+
+		<Setter Property="FontSize" Value="20"/>
+	</Style>
+
+	<!-- Secondary Label for settings menu-->
+	<Style Selector="Label.SettingsLabelH2">
+		<Setter Property="Padding" Value="5,10,0,5" />
+		<Setter Property="Margin" Value="10,0,0,0" />
+
+		<Setter Property="FontSize" Value="15"/>
+	</Style>
+
+	<!--Browser mode button styling-->
+	<Style Selector="ToggleButton.BrowserMode">
+		<Setter Property="Padding" Value="10,5,10,5" />
+		<Setter Property="Margin" Value="15,0,0,0" />
+
+		<Setter Property="FontSize" Value="12"/>
+	</Style>
+
+	<!--Browser mode button toggles-->
+	<Style Selector="ToggleButton.BrowserMode Label.BrowserModeDesktop">
+		<Setter Property="IsVisible" Value="False"/>
+	</Style>
+	<Style Selector="ToggleButton.BrowserMode:checked Label.BrowserModeDesktop">
+		<Setter Property="IsVisible" Value="True"/>
+	</Style>
+	<Style Selector="ToggleButton.BrowserMode Label.BrowserModeMobile">
+		<Setter Property="IsVisible" Value="True"/>
+	</Style>
+	<Style Selector="ToggleButton.BrowserMode:checked Label.BrowserModeMobile">
+		<Setter Property="IsVisible" Value="False"/>
+	</Style>
+
+	<!--Use Tor button styling-->
+	<Style Selector="ToggleButton.UseTor">
+		<Setter Property="Padding" Value="10,5,10,5" />
+		<Setter Property="Margin" Value="15,0,0,0" />
+
+		<Setter Property="FontSize" Value="12"/>
+	</Style>
+
+	<!--Use Tor button toggles-->
+	<Style Selector="ToggleButton.UseTor Label.UseTorTrue">
+		<Setter Property="IsVisible" Value="False"/>
+	</Style>
+	<Style Selector="ToggleButton.UseTor:checked Label.UseTorTrue">
+		<Setter Property="IsVisible" Value="True"/>
+	</Style>
+	<Style Selector="ToggleButton.UseTor Label.UseTorFalse">
+		<Setter Property="IsVisible" Value="True"/>
+	</Style>
+	<Style Selector="ToggleButton.UseTor:checked Label.UseTorFalse">
+		<Setter Property="IsVisible" Value="False"/>
+	</Style>
+	
+	<!--Settings checkbox-->
+	<Style Selector="CheckBox.SettingsCheckBox">
+		<Setter Property="Margin" Value="17,5,0,0" />
+	</Style>
+
+	<Style Selector="Label.SettingsLabelCheckBox">
+		<Setter Property="Padding" Value="5,11,0,0" />
+
+		<Setter Property="FontSize" Value="15"/>
+	</Style>
+
+</Styles>

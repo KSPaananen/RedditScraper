@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RedditScraper.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:RedditScraper.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RedditScraper.Views.MainWindow"
+		TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+		ExtendClientAreaToDecorationsHint="True"
+		Closing="Window_Closing"
+        Icon="/Assets/avalonia-logo.ico"
+		MinWidth="{Binding MinWidth}"
+		MinHeight="{Binding MinHeight}"
+        Title="RedditScraper"
+		>
+
+	<Window.Styles>
+		<StyleInclude Source="/Assets/Styles.axaml" />
+	</Window.Styles>
+	<Window.DataContext>
+		
+	</Window.DataContext>
+	
+	<DockPanel Name="DockPanelPrimary" HorizontalAlignment="Stretch" PointerMoved="DockPanel_PointerMoved" PointerPressed="DockPanel_PointerPressed" PointerReleased="DockPanel_PointerReleased">
+		<ExperimentalAcrylicBorder IsHitTestVisible="True">
+			<ExperimentalAcrylicBorder.Material>
+				<ExperimentalAcrylicMaterial BackgroundSource="Digger" TintColor="Blue" TintOpacity="0.5" MaterialOpacity="0.1" />
+			</ExperimentalAcrylicBorder.Material>
+		</ExperimentalAcrylicBorder>
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="_Application" PointerEntered="MenuItem_PointerEntered" PointerExited="MenuItem_PointerExited">
+				<MenuItem Name="BtnResetWindow" Header="_Reset window" Click="MenuItem_Click" PointerEntered="MenuItem_PointerEntered" PointerExited="MenuItem_PointerExited" />
+			</MenuItem>
+			<MenuItem Header="_Help" PointerEntered="MenuItem_PointerEntered" PointerExited="MenuItem_PointerExited" >
+				<MenuItem Name="BtnGithub" Header="Github" Click="MenuItem_Click" PointerEntered="MenuItem_PointerEntered" PointerExited="MenuItem_PointerExited" />
+			</MenuItem>
+		</Menu>
+		<views:MainView />
+	</DockPanel>
+
+</Window>
