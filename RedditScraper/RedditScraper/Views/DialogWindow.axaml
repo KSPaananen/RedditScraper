@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:views="clr-namespace:RedditScraper.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RedditScraper.Views.DialogWindow"
+		TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+		ExtendClientAreaToDecorationsHint="True"
+		ExtendClientAreaChromeHints="NoChrome"
+		CanResize="False"
+		Width="{Binding Width}"
+		Height="{Binding Height}"
+		PositionChanged="WindowPositionChanged"
+        Title="DialogWindow"
+		>
+
+	<Window.Styles>
+		<StyleInclude Source="/Assets/dialogstyles.axaml" />
+	</Window.Styles>
+	<Window.DataContext>
+
+	</Window.DataContext>
+	
+	<DockPanel>
+		<ExperimentalAcrylicBorder IsHitTestVisible="True">
+			<ExperimentalAcrylicBorder.Material>
+				<ExperimentalAcrylicMaterial BackgroundSource="Digger" TintOpacity="0.5" MaterialOpacity="0.1" />
+			</ExperimentalAcrylicBorder.Material>
+		</ExperimentalAcrylicBorder>
+		
+		<views:TorDialogView />
+	</DockPanel>
+	
+</Window>

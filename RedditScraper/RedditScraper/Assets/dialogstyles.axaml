@@ -1,0 +1,84 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="0">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+	<Style Selector="Label.Title">
+		<Setter Property="Padding" Value="0,0,0,0" />
+		<Setter Property="Margin" Value="10,0,0,5" />
+
+		<Setter Property="FontSize" Value="15"/>
+	</Style>
+
+	<Style Selector="TextBlock.Description">
+		<Setter Property="Padding" Value="8,0,0,0" />
+		<Setter Property="Margin" Value="0,0,0,0" />
+
+		<Setter Property="Width" Value="325" />
+
+		<Setter Property="FontSize" Value="13" />
+	</Style>
+
+	<Style Selector="Button.ActionButton">
+		<Setter Property="VerticalAlignment" Value="Bottom" />
+		<Setter Property="HorizontalAlignment" Value="Right" />
+
+		<Setter Property="Padding" Value="5,5,5,5" />
+		<Setter Property="Margin" Value="10,10,10,10" />
+
+		<Setter Property="FontSize" Value="13"/>
+	</Style>
+
+	<Style Selector="Button.HyperLink">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Margin" Value="0" />
+
+		<Setter Property="FontSize" Value="13" />
+		<Setter Property="Foreground" Value="LightBlue" />
+		<Setter Property="Background" Value="Transparent" />
+		
+	</Style>
+
+	<Style Selector="Button.HyperLink:pointerover">
+		<Setter Property="Foreground" Value="Transparent" />
+		<Setter Property="Background" Value="Transparent" />
+
+	</Style>
+
+	<Style Selector="TextBlock.Hyperlink:pointerover">
+		<Setter Property="TextDecorations" Value="Underline" />
+	</Style>
+
+	<Style Selector="ProgressBar">
+		<Setter Property="VerticalAlignment" Value="Bottom" />
+		<Setter Property="HorizontalAlignment" Value="Stretch" />
+
+		<Setter Property="Margin" Value="10,0,0,0" />
+		<Setter Property="Padding" Value="0,0,0,0" />
+
+		<Setter Property="Width" Value="325" />
+		<Setter Property="Height" Value="10" />
+
+		<Setter Property="FontSize" Value="10" />
+		
+		<Setter Property="CornerRadius" Value="20" />
+		<Setter Property="Foreground" Value="Cyan" />
+	</Style>
+
+	<Style Selector="Label.InstallState">
+		<Setter Property="VerticalAlignment" Value="Bottom" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+
+		<Setter Property="Padding" Value="8,0,0,0" />
+		<Setter Property="Margin" Value="0,0,0,0" />
+
+		<Setter Property="FontSize" Value="13" />
+	</Style>
+	
+</Styles>

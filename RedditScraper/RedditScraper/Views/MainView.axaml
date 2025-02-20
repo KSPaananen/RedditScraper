@@ -1,0 +1,149 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:RedditScraper.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="RedditScraper.Views.MainView"
+             x:DataType="vm:MainViewModel"
+			 >
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:MainViewModel />
+	</Design.DataContext>
+
+	<!-- Centerer grid-->
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.1*" />
+			<ColumnDefinition Width="0.8*" />
+			<ColumnDefinition Width="0.1*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*" />
+		</Grid.RowDefinitions>
+
+		<!-- Header & body divider-->
+		<Grid Grid.Column="1" Grid.Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="65" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+
+			<TextBox Grid.Column="0" Grid.Row="0" Name="LinkTextBox" Classes="Link" Watermark="Link to a reddit post" Text="{Binding PostLink}" />
+
+			<!-- Page splitter-->
+			<Grid Grid.Column="0" Grid.Row="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.5*" />
+					<ColumnDefinition Width="0.5*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*" />
+				</Grid.RowDefinitions>
+
+				<TextBox Grid.Column="0" Grid.Row="0" Name="Console" Classes="Results" Text="{Binding ConsoleContent}" />
+
+				<!-- Right side -->
+				<Grid Grid.Column="1" Grid.Row="0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="1*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*" />
+						<RowDefinition Height="75" />
+					</Grid.RowDefinitions>
+					
+					<!-- Settings page -->
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="400" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="25" />
+							<RowDefinition Height="75" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+
+						<StackPanel Grid.Column="1" Grid.Row="0">
+							<Label Classes="SettingsLabelH1" Content="Settings" />
+						</StackPanel>
+
+						<StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" FlowDirection="LeftToRight">
+							<StackPanel>
+								<Label Classes="SettingsLabelH2">Enable Tor</Label>
+								<ToggleButton Name="UseTor" Classes="UseTor" IsChecked="{Binding UseTorChecked}" Command="{Binding UseTor}">
+									<Panel>
+										<Label Classes="UseTorTrue" Content="Enabled"/>
+										<Label Classes="UseTorFalse" Content="Disabled"/>
+									</Panel>
+								</ToggleButton>
+							</StackPanel>
+							<StackPanel>
+								<Label Classes="SettingsLabelH2">Browser mode</Label>
+								<ToggleButton Name="BrowserMode" Classes="BrowserMode" IsChecked="{Binding BrowserModeChecked}" Command="{Binding BrowserMode}">
+									<Panel>
+										<Label Classes="BrowserModeDesktop" Content="Desktop"/>
+										<Label Classes="BrowserModeMobile" Content="Mobile"/>
+									</Panel>
+								</ToggleButton>
+							</StackPanel>
+							<StackPanel>
+								<Label Classes="SettingsLabelH2">CSV separator</Label>
+								<TextBox Name="TextBoxSeparator" Classes="Separator" Watermark="" Text="{Binding Separator}" />
+							</StackPanel>
+						</StackPanel>
+						<StackPanel Grid.Column="1" Grid.Row="2" Orientation="Vertical" FlowDirection="LeftToRight">
+							<StackPanel Orientation="Horizontal" >
+								<CheckBox Classes="SettingsCheckBox" IsChecked="{Binding UseCSVChecked}" Command="{Binding UseCSV}" />
+								<Label Classes="SettingsLabelCheckBox">Write to CSV</Label>
+							</StackPanel>
+							<StackPanel Orientation="Horizontal" >
+								<CheckBox Classes="SettingsCheckBox" IsChecked="{Binding UseDbChecked}" Command="{Binding UseDB}" />
+								<Label Classes="SettingsLabelCheckBox">Write to MongoDB</Label>
+							</StackPanel>
+							<StackPanel IsVisible="{Binding ConnectionStringVisibility }" >
+								<Label Classes="SettingsLabelH2" >MongoDB connection string</Label>
+								<TextBox Name="ConnectionStringTextBox" Classes="SettingsInput" Watermark="Connection string to MongoDB" Text="{Binding ConnectionString}" />
+							</StackPanel>
+						</StackPanel>
+
+					</Grid>
+
+					<!-- Primary buttons -->
+					<Grid Grid.Column="0" Grid.Row="1">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="0.5*" />
+							<ColumnDefinition Width="0.5*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+
+						<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" FlowDirection="LeftToRight">
+							<Button Name="CheckDataButton" Classes="PrimaryLeft" Command="{Binding Data}" ClickMode="Press">Files</Button>
+						</StackPanel>
+
+						<StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" FlowDirection="RightToLeft">
+							<Button Name="StartButton" Classes="PrimaryRight" Command="{Binding Start}" IsVisible="{Binding !ProcessRunning}" Background="Green" ClickMode="Press">Start</Button>
+							<Button Name="StopButton" Classes="PrimaryRight" Command="{Binding Start}" IsVisible="{Binding ProcessRunning}" Background="Red" ClickMode="Press">Stop</Button>
+						</StackPanel>
+
+					</Grid>
+					
+				</Grid>
+				
+			</Grid>
+			
+		</Grid>
+
+	</Grid>
+
+</UserControl>
